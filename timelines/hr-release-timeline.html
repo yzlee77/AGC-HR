@@ -523,15 +523,15 @@
   var editButtons = scopeSection.querySelectorAll('[data-role="edit"]');
 
   makeEditableText("scopeObjective", "agc-hr-r3-scope-objective",
-    "Extend the Offboarding module in ServiceNow — built for Resignation and Expiry of Contract in R1–R3 — to the remaining movement types: Temp On/Offboard, Transfer Out, Temporary Away, End of Attachment, Retirement, App Services, and Crossboarding.",
+    "Extend the Offboarding module in ServiceNow to R4's seven movement types, built in phases across Sprints 18–23: Temp On/Offboard (Sprint 18), Transfer Out / Temporary Away / End of Attachment (Sprints 19–20), App Services (Sprint 21), Retirement (Sprint 22), and Crossboarding (Sprint 23) — then UAT and Go-Live in Sprint 24 (14–25 Dec 2026).",
     editButtons[0]);
 
   makeEditableText("scopeStart", "agc-hr-r3-scope-start",
-    "HR COE uploads the movement event via Excel, triggering the case for the employee, under one of R4's seven movement types: Temp On/Offboard, Transfer Out, Temporary Away, End of Attachment, Retirement, App Services, or Crossboarding.",
+    "HR COE uploads the movement event via Excel, triggering the case for the employee, under whichever of R4's seven movement types is being built that sprint — starting with Temp On/Offboard in Sprint 18.",
     editButtons[1]);
 
   makeEditableText("scopeEnd", "agc-hr-r3-scope-end",
-    "Case, notification, and access administration closed out after handover & clearance is completed across all stakeholders (OM, Library, FMU, FBP, Shared Services, IFM, ITD EUSS).",
+    "Case, notification, and access administration closed out after handover & clearance is completed across all stakeholders (OM, Library, FMU, FBP, Shared Services, IFM, ITD EUSS), with all seven movement types verified in UAT and going live in Sprint 24 (14–25 Dec 2026).",
     editButtons[2]);
 
   makeEditableList("scopePersonas", "agc-hr-r3-scope-personas",
@@ -548,9 +548,10 @@
     editButtons[3]);
 
   makeEditableList("scopeQuestions", "agc-hr-r3-scope-questions",
-    ["R4 sprint schedule across the 7 movement types — not yet confirmed",
-     "Which of the 7 movement types can reuse the baseline flow as-is, and which need their own approval/handover logic?",
+    ["Which of the 7 movement types can reuse the baseline flow as-is, and which need their own approval/handover logic?",
+     "Sprints 19–20 cover three movement types (Transfer Out, Temporary Away, End of Attachment) across two sprints — confirm whether that's parallel build-out or sequential",
      "Any approval routing or handover differences per movement type, beyond what the baseline flow already covers?",
+     "One 2-week sprint (Sprint 24) for UAT and Go-Live together — confirm this is enough time given 7 movement types to test",
      "R3 feedback items were finalised late (18 Sep) — confirm the 9 late-added stories (AGCCSP-1062 to 1072) are fully actioned"],
     editButtons[4]);
 })();
