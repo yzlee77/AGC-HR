@@ -274,34 +274,26 @@
 
   <div class="sprint-card">
     <div class="sprint-card-head">
-      <span class="sname">Start Point</span>
+      <span class="sname">Product Vision</span>
       <span class="edit-toggle" data-role="edit">Edit</span>
     </div>
-    <div class="sprint-body" id="scopeStart"></div>
+    <div class="sprint-body" id="scopeVision"></div>
   </div>
 
   <div class="sprint-card">
     <div class="sprint-card-head">
-      <span class="sname">End Point</span>
+      <span class="sname">Key Outcomes</span>
       <span class="edit-toggle" data-role="edit">Edit</span>
     </div>
-    <div class="sprint-body" id="scopeEnd"></div>
+    <div class="sprint-body" id="scopeOutcomes"></div>
   </div>
 
   <div class="sprint-card">
     <div class="sprint-card-head">
-      <span class="sname">Personas Involved</span>
+      <span class="sname">Success Metrics</span>
       <span class="edit-toggle" data-role="edit">Edit</span>
     </div>
-    <div class="sprint-body" id="scopePersonas"></div>
-  </div>
-
-  <div class="sprint-card">
-    <div class="sprint-card-head">
-      <span class="sname">Open Questions</span>
-      <span class="edit-toggle" data-role="edit">Edit</span>
-    </div>
-    <div class="sprint-body" id="scopeQuestions"></div>
+    <div class="sprint-body" id="scopeMetrics"></div>
   </div>
 
 </section>
@@ -526,34 +518,22 @@
     "Extend the Offboarding module in ServiceNow to R4's seven movement types, built in phases across Sprints 18–23: Temp On/Offboard (Sprint 18), Transfer Out / Temporary Away / End of Attachment (Sprints 19–20), App Services (Sprint 21), Retirement (Sprint 22), and Crossboarding (Sprint 23) — then UAT and Go-Live in Sprint 24 (14–25 Dec 2026).",
     editButtons[0]);
 
-  makeEditableText("scopeStart", "agc-hr-r3-scope-start",
-    "HR COE uploads the movement event via Excel, triggering the case for the employee, under whichever of R4's seven movement types is being built that sprint — starting with Temp On/Offboard in Sprint 18.",
+  makeEditableText("scopeVision", "agc-hr-r4-scope-vision",
+    "One consistent digital offboarding experience for every way an employee leaves AGC — resignation, transfer, retirement, secondment, or otherwise — so HR COE, RO/HODs, and every clearance stakeholder work through the same reliable ServiceNow flow, not a patchwork of manual, movement-type-specific workarounds.",
     editButtons[1]);
 
-  makeEditableText("scopeEnd", "agc-hr-r3-scope-end",
-    "Case, notification, and access administration closed out after handover & clearance is completed across all stakeholders (OM, Library, FMU, FBP, Shared Services, IFM, ITD EUSS), with all seven movement types verified in UAT and going live in Sprint 24 (14–25 Dec 2026).",
+  makeEditableList("scopeOutcomes", "agc-hr-r4-scope-outcomes",
+    ["All 7 remaining movement types — Temp On/Offboard, Transfer Out, Temporary Away, End of Attachment, Retirement, App Services, Crossboarding — run through the same offboarding flow built for the R1–R3 baseline",
+     "HR COE, RO/HOD, and clearance stakeholders (OM, Library, FMU, FBP, Shared Services, IFM, ITD EUSS) no longer need manual, movement-type-specific workarounds",
+     "Consistent case, notification, and access-admin handling across every type of employee movement, not just resignation/expiry of contract"],
     editButtons[2]);
 
-  makeEditableList("scopePersonas", "agc-hr-r3-scope-personas",
-    ["HR COE — uploads the movement event, triggers the case",
-     "RO/HOD — acknowledgement & retention feedback",
-     "Employee — exit survey/interview, or movement-specific equivalent",
-     "FBP — leave encashment & exit assessment approval",
-     "OM — handover & clearance",
-     "Library — handover & clearance",
-     "FMU — handover & clearance",
-     "Shared Services — handover & clearance",
-     "IFM — handover & clearance",
-     "ITD EUSS — dekit/IT asset return, access admin"],
+  makeEditableList("scopeMetrics", "agc-hr-r4-scope-metrics",
+    ["All 7 movement types pass UAT in Sprint 24 (14–25 Dec 2026) with no P1/P2 defects",
+     "Go-live achieved by 25 Dec 2026 with zero manual fallback processes needed for in-scope movement types",
+     "Reduction in HR COE manual processing time per case, vs. the pre-R4 baseline — target TBD",
+     "No case, notification, or access-admin gaps reported in the first month post-go-live"],
     editButtons[3]);
-
-  makeEditableList("scopeQuestions", "agc-hr-r3-scope-questions",
-    ["Which of the 7 movement types can reuse the baseline flow as-is, and which need their own approval/handover logic?",
-     "Sprints 19–20 cover three movement types (Transfer Out, Temporary Away, End of Attachment) across two sprints — confirm whether that's parallel build-out or sequential",
-     "Any approval routing or handover differences per movement type, beyond what the baseline flow already covers?",
-     "One 2-week sprint (Sprint 24) for UAT and Go-Live together — confirm this is enough time given 7 movement types to test",
-     "R3 feedback items were finalised late (18 Sep) — confirm the 9 late-added stories (AGCCSP-1062 to 1072) are fully actioned"],
-    editButtons[4]);
 })();
 
 // --- R4 sprint plan cards (editable, one localStorage entry per sprint) ---
