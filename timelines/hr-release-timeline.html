@@ -550,34 +550,34 @@
     editButtons[4]);
 })();
 
-// --- R4 sprint plan cards (editable, one localStorage entry per movement type) ---
+// --- R4 sprint plan cards (editable, one localStorage entry per sprint) ---
 (function(){
   var SPRINTS = [
-    { id:"temp-on-off", dates:"TBD", risk:null,
+    { id:1, global:18, dates:"21 Sep&ndash;2 Oct", risk:null,
       def:["Dev of Temp On/Offboard flow",
-           "Discovery of Transfer Out requirements — informs the next sprint"] },
-    { id:"transfer-out", dates:"TBD", risk:null,
+           "Discovery of Transfer Out / Temporary Away / End of Attachment requirements — informs Sprints 2-3"] },
+    { id:2, global:19, dates:"3&ndash;14 Oct", risk:null,
       def:["Dev of Transfer Out flow",
-           "Discovery of Temporary Away requirements — informs the next sprint"] },
-    { id:"temporary-away", dates:"TBD", risk:null,
-      def:["Dev of Temporary Away flow",
-           "Discovery of End of Attachment requirements — informs the next sprint"] },
-    { id:"end-of-attachment", dates:"TBD", risk:null,
-      def:["Dev of End of Attachment flow",
-           "Discovery of Retirement requirements — informs the next sprint"] },
-    { id:"retirement", dates:"TBD", risk:null,
-      def:["Dev of Retirement flow",
-           "Discovery of App Services requirements — informs the next sprint"] },
-    { id:"app-services", dates:"TBD", risk:null,
+           "Dev of Temporary Away flow",
+           "Dev of End of Attachment flow"] },
+    { id:3, global:20, dates:"15&ndash;26 Oct", risk:null,
+      def:["Dev of Transfer Out flow (continued)",
+           "Dev of Temporary Away flow (continued)",
+           "Dev of End of Attachment flow (continued)",
+           "Discovery of App Services requirements — informs Sprint 4"] },
+    { id:4, global:21, dates:"27 Oct&ndash;7 Nov", risk:null,
       def:["Dev of App Services flow",
-           "Discovery of Crossboarding requirements — informs the next sprint"] },
-    { id:"crossboarding", dates:"TBD", risk:null,
+           "Discovery of Retirement requirements — informs Sprint 5"] },
+    { id:5, global:22, dates:"8&ndash;19 Nov", risk:null,
+      def:["Dev of Retirement flow",
+           "Discovery of Crossboarding requirements — informs Sprint 6"] },
+    { id:6, global:23, dates:"20 Nov&ndash;1 Dec", risk:null,
       def:["Dev of Crossboarding flow"] }
   ];
 
   var container = document.getElementById("sprintCards");
 
-  function keyFor(id){ return "agc-hr-r3-sprint-" + id; }
+  function keyFor(id){ return "agc-hr-r4-sprint-" + id; }
 
   function loadSprintItems(sprint){
     try {
@@ -591,15 +591,10 @@
     try { localStorage.setItem(keyFor(sprint.id), JSON.stringify(items)); } catch(e) {}
   }
 
-  var NAMES = {
-    "temp-on-off":"R4 &middot; Temp On/Offboard",
-    "transfer-out":"R4 &middot; Transfer Out",
-    "temporary-away":"R4 &middot; Temporary Away",
-    "end-of-attachment":"R4 &middot; End of Attachment",
-    "retirement":"R4 &middot; Retirement",
-    "app-services":"R4 &middot; App Services",
-    "crossboarding":"R4 &middot; Crossboarding"
-  };
+  var NAMES = {};
+  SPRINTS.forEach(function(sprint){
+    NAMES[sprint.id] = "Sprint " + sprint.global + " &middot; R4 - Sprint " + sprint.id;
+  });
 
   SPRINTS.forEach(function(sprint){
     var card = document.createElement("div");
