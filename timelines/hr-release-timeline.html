@@ -168,6 +168,13 @@
   #sprintCards .sprint-card-head{display:flex; flex-direction:column; align-items:stretch; gap:4px;}
   #sprintCards .sprint-card-head .head-top{display:flex; align-items:baseline; gap:10px;}
   #sprintCards .sprint-card-head .head-top .edit-toggle{margin-inline-start:auto;}
+  #sprintCards .sprint-card.current-sprint{
+    border:2px solid var(--accent); box-shadow:0 0 0 4px var(--accent-tint);
+  }
+  .current-badge{
+    display:inline-block; background:var(--accent); color:var(--surface); font-size:.68rem;
+    font-weight:700; letter-spacing:.04em; padding:2px 8px; border-radius:999px; vertical-align:middle;
+  }
   .risk-tag{
     display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:600;
     color:var(--risk-text); background:var(--risk-bg); padding:3px 9px; border-radius:6px; margin-block-start:8px;
@@ -531,23 +538,23 @@
 // --- R4 sprint plan cards (editable, one localStorage entry per sprint) ---
 (function(){
   var SPRINTS = [
-    { id:1, global:18, dates:"21 Sep&ndash;2 Oct", risk:null,
+    { id:1, global:18, dates:"21 Sep&ndash;2 Oct", start:"2026-09-21", end:"2026-10-02", risk:null,
       def:["Dev of Temp On/Offboard flow",
            "Discovery of Transfer Out / Temporary Away / End of Attachment requirements — informs Sprints 2-3"] },
-    { id:2, global:19, dates:"5&ndash;16 Oct", risk:null,
+    { id:2, global:19, dates:"5&ndash;16 Oct", start:"2026-10-05", end:"2026-10-16", risk:null,
       def:["Dev of Transfer Out, Temporary Away, and End of Attachment flows"] },
-    { id:3, global:20, dates:"19&ndash;30 Oct", risk:null,
+    { id:3, global:20, dates:"19&ndash;30 Oct", start:"2026-10-19", end:"2026-10-30", risk:null,
       def:["Dev of Transfer Out, Temporary Away, and End of Attachment flows (continued)",
            "Discovery of App Services requirements — informs Sprint 4"] },
-    { id:4, global:21, dates:"2&ndash;13 Nov", risk:null,
+    { id:4, global:21, dates:"2&ndash;13 Nov", start:"2026-11-02", end:"2026-11-13", risk:null,
       def:["Dev of App Services flow",
            "Discovery of Retirement requirements — informs Sprint 5"] },
-    { id:5, global:22, dates:"16&ndash;27 Nov", risk:null,
+    { id:5, global:22, dates:"16&ndash;27 Nov", start:"2026-11-16", end:"2026-11-27", risk:null,
       def:["Dev of Retirement flow",
            "Discovery of Crossboarding requirements — informs Sprint 6"] },
-    { id:6, global:23, dates:"30 Nov&ndash;11 Dec", risk:null,
+    { id:6, global:23, dates:"30 Nov&ndash;11 Dec", start:"2026-11-30", end:"2026-12-11", risk:null,
       def:["Dev of Crossboarding flow"] },
-    { id:7, global:24, dates:"14&ndash;25 Dec", risk:null,
+    { id:7, global:24, dates:"14&ndash;25 Dec", start:"2026-12-14", end:"2026-12-25", risk:null,
       def:["UAT", "Go-Live"] }
   ];
 
@@ -572,15 +579,20 @@
     NAMES[sprint.id] = "Sprint " + sprint.global + " <span class=\"sub\">(R4 - Sprint " + sprint.id + ")</span>";
   });
 
+  var today = new Date(); today.setHours(0,0,0,0);
+
   SPRINTS.forEach(function(sprint){
     var card = document.createElement("div");
     card.className = "sprint-card";
+
+    var isCurrent = today >= new Date(sprint.start) && today <= new Date(sprint.end);
+    if (isCurrent) card.classList.add("current-sprint");
 
     var head = document.createElement("div");
     head.className = "sprint-card-head";
     head.innerHTML =
       '<div class="head-top">' +
-        '<span class="sname">' + NAMES[sprint.id] + '</span>' +
+        '<span class="sname">' + NAMES[sprint.id] + (isCurrent ? ' <span class="current-badge">CURRENT</span>' : '') + '</span>' +
         '<span class="edit-toggle" data-role="edit">Edit</span>' +
       '</div>' +
       '<span class="sdates">' + sprint.dates + '</span>';
