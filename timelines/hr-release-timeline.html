@@ -172,12 +172,12 @@
 
 <p class="eyebrow">AGC &middot; HR Track</p>
 <h1>Release Timeline</h1>
-<p class="subtitle">Currently <b>R3 &middot; Expansion</b> &nbsp;&middot;&nbsp; week of 28 September 2026</p>
+<p class="subtitle">Currently <b>R4</b> &nbsp;&middot;&nbsp; week of 28 September 2026</p>
 
 <div class="tabs">
   <button class="tab-btn active" id="tabBtnOverview">Overview</button>
-  <button class="tab-btn" id="tabBtnR3">R3 Expansion Plan</button>
-  <button class="tab-btn" id="tabBtnScope">R3 Scope</button>
+  <button class="tab-btn" id="tabBtnR3">R4 Plan</button>
+  <button class="tab-btn" id="tabBtnScope">R4 Scope</button>
 </div>
 
 <section id="tabOverview">
@@ -193,16 +193,12 @@
         <span class="tick"></span>
       </div>
     </div>
-    <div class="gap"></div>
-    <div class="col col-r4"></div>
   </div>
 
   <div class="row">
     <div class="col col-r1"><div class="bar done"></div></div>
     <div class="gap"></div>
     <div class="col col-sprint"><div class="bar current"></div></div>
-    <div class="gap"></div>
-    <div class="col col-r4"><div class="bar future"></div></div>
   </div>
 
   <div class="row" style="margin-block-start:18px;">
@@ -211,11 +207,7 @@
     </div>
     <div class="gap"></div>
     <div class="col col-sprint">
-      <div class="cap-label"><div class="name">R3 &middot; Expansion</div><div class="meta">Posted Out / Secondment Out / End of Secondment &middot; sprints TBD</div></div>
-    </div>
-    <div class="gap"></div>
-    <div class="col col-r4">
-      <div class="cap-label"><div class="name">R4</div><div class="meta">Transferred Out To &middot; Dates TBD</div></div>
+      <div class="cap-label"><div class="name">R4</div><div class="meta">Temp On/Offboard, Transfer Out, Temporary Away, End of Attachment, Retirement, App Services, Crossboarding &middot; sprints TBD</div></div>
     </div>
   </div>
 
@@ -230,7 +222,7 @@
 <div class="accordion" id="focusAccordion" data-open="false">
   <button class="accordion-header" id="focusToggle">
     <span class="chevron"></span>
-    <span class="title">Current Focus &nbsp;<span class="tag">R3 Expansion</span></span>
+    <span class="title">Current Focus &nbsp;<span class="tag">R4</span></span>
     <span class="edit-toggle" id="editToggle">Edit</span>
   </button>
   <div class="accordion-body">
@@ -246,7 +238,7 @@
 </div>
 
 <footer>
-  Bar widths are illustrative, not duration-proportional, since Expansion and R4 dates aren't confirmed yet. Update the TODAY marker, stage labels, and the Current Focus list as the release progresses, then screenshot the page into the deck. Focus items are saved in this browser only (not shared/synced) — click Edit to update.
+  Bar widths are illustrative, not duration-proportional, since R4 sprint dates aren't confirmed yet. Update the TODAY marker, stage labels, and the Current Focus list as the release progresses, then screenshot the page into the deck. Focus items are saved in this browser only (not shared/synced) — click Edit to update.
 </footer>
 
 </section>
@@ -254,7 +246,7 @@
 <section id="tabR3" hidden>
 
   <div class="r3-intro">
-    <b>Tentative plan for R3 Expansion.</b>
+    <b>Tentative plan for R4.</b>
   </div>
 
   <div id="sprintCards"></div>
@@ -264,7 +256,7 @@
 <section id="tabScope" hidden>
 
   <div class="r3-intro">
-    <b>Current understanding, not final scope.</b> Baseline covers Resignation and Expiry of Contract only; everything below reflects R3 as a whole (baseline + expansion) and will be refined as the expansion phase is scoped. Every section below is editable directly on this page.
+    <b>Current understanding, not final scope.</b> R1&ndash;R3 (Resignation, Expiry of Contract) are live; everything below reflects R4 and will be refined as R4 is scoped. Every section below is editable directly on this page.
   </div>
 
   <div class="sprint-card">
@@ -526,21 +518,21 @@
   var editButtons = scopeSection.querySelectorAll('[data-role="edit"]');
 
   makeEditableText("scopeObjective", "agc-hr-r3-scope-objective",
-    "Build the Offboarding module in ServiceNow, covering the full separation journey from case trigger through handover, clearance, and case closure — starting with the two most common movement types (Resignation, Expiry of Contract) at go-live, then expanding to Posted Out, Secondment Out, and End of Secondment.",
+    "Extend the Offboarding module in ServiceNow — built for Resignation and Expiry of Contract in R1–R3 — to the remaining movement types: Temp On/Offboard, Transfer Out, Temporary Away, End of Attachment, Retirement, App Services, and Crossboarding.",
     editButtons[0]);
 
   makeEditableText("scopeStart", "agc-hr-r3-scope-start",
-    "HR COE uploads the movement event via Excel, triggering the offboarding case for the employee. At go-live this covers Resignation and Expiry of Contract only; Posted Out, Secondment Out, and End of Secondment are added in the expansion phase.",
+    "HR COE uploads the movement event via Excel, triggering the case for the employee, under one of R4's seven movement types: Temp On/Offboard, Transfer Out, Temporary Away, End of Attachment, Retirement, App Services, or Crossboarding.",
     editButtons[1]);
 
   makeEditableText("scopeEnd", "agc-hr-r3-scope-end",
-    "Case, notification, and access administration closed out after handover & clearance is completed across all stakeholders (OM, Library, FMU, FBP, Shared Services, IFM, ITD EUSS). \"Transferred Out To\" is explicitly deferred to R4 and out of scope here.",
+    "Case, notification, and access administration closed out after handover & clearance is completed across all stakeholders (OM, Library, FMU, FBP, Shared Services, IFM, ITD EUSS).",
     editButtons[2]);
 
   makeEditableList("scopePersonas", "agc-hr-r3-scope-personas",
-    ["HR COE — uploads the movement event, triggers the offboarding case",
+    ["HR COE — uploads the movement event, triggers the case",
      "RO/HOD — acknowledgement & retention feedback",
-     "Employee (offboarding officer) — exit survey/interview",
+     "Employee — exit survey/interview, or movement-specific equivalent",
      "FBP — leave encashment & exit assessment approval",
      "OM — handover & clearance",
      "Library — handover & clearance",
@@ -551,25 +543,36 @@
     editButtons[3]);
 
   makeEditableList("scopeQuestions", "agc-hr-r3-scope-questions",
-    ["Movement-type expansion sprint schedule (Posted Out / Secondment Out / End of Secondment) — not yet confirmed, to be scoped after baseline go-live",
-     "Confirm no \"Transferred Out To\" (R4) dependencies leak into R3 baseline or expansion scope",
+    ["R4 sprint schedule across the 7 movement types — not yet confirmed",
+     "Which of the 7 movement types can reuse the baseline flow as-is, and which need their own approval/handover logic?",
      "Any approval routing or handover differences per movement type, beyond what the baseline flow already covers?",
-     "R3 feedback items were finalised late (18 Sep) — confirm the 9 late-added stories (AGCCSP-1062 to 1072) are fully actioned around go-live"],
+     "R3 feedback items were finalised late (18 Sep) — confirm the 9 late-added stories (AGCCSP-1062 to 1072) are fully actioned"],
     editButtons[4]);
 })();
 
-// --- R3 Expansion sprint plan cards (editable, one localStorage entry per item) ---
+// --- R4 sprint plan cards (editable, one localStorage entry per movement type) ---
 (function(){
   var SPRINTS = [
-    { id:"posted-out", dates:"TBD", risk:null,
-      def:["Dev of Posted Out offboarding flow, reusing the baseline case/notification/access admin structure",
-           "Discovery of Posted Out-specific approval and handover differences"] },
-    { id:"secondment-out", dates:"TBD", risk:null,
-      def:["Dev of Secondment Out offboarding flow",
-           "Discovery of End of Secondment requirements — informs the next expansion sprint"] },
-    { id:"end-of-secondment", dates:"TBD", risk:null,
-      def:["Dev of End of Secondment offboarding flow",
-           "Discovery of any residual dependencies before R4 (Transferred Out To) planning begins"] }
+    { id:"temp-on-off", dates:"TBD", risk:null,
+      def:["Dev of Temp On/Offboard flow",
+           "Discovery of Transfer Out requirements — informs the next sprint"] },
+    { id:"transfer-out", dates:"TBD", risk:null,
+      def:["Dev of Transfer Out flow",
+           "Discovery of Temporary Away requirements — informs the next sprint"] },
+    { id:"temporary-away", dates:"TBD", risk:null,
+      def:["Dev of Temporary Away flow",
+           "Discovery of End of Attachment requirements — informs the next sprint"] },
+    { id:"end-of-attachment", dates:"TBD", risk:null,
+      def:["Dev of End of Attachment flow",
+           "Discovery of Retirement requirements — informs the next sprint"] },
+    { id:"retirement", dates:"TBD", risk:null,
+      def:["Dev of Retirement flow",
+           "Discovery of App Services requirements — informs the next sprint"] },
+    { id:"app-services", dates:"TBD", risk:null,
+      def:["Dev of App Services flow",
+           "Discovery of Crossboarding requirements — informs the next sprint"] },
+    { id:"crossboarding", dates:"TBD", risk:null,
+      def:["Dev of Crossboarding flow"] }
   ];
 
   var container = document.getElementById("sprintCards");
@@ -589,9 +592,13 @@
   }
 
   var NAMES = {
-    "posted-out":"Expansion &middot; Posted Out",
-    "secondment-out":"Expansion &middot; Secondment Out",
-    "end-of-secondment":"Expansion &middot; End of Secondment"
+    "temp-on-off":"R4 &middot; Temp On/Offboard",
+    "transfer-out":"R4 &middot; Transfer Out",
+    "temporary-away":"R4 &middot; Temporary Away",
+    "end-of-attachment":"R4 &middot; End of Attachment",
+    "retirement":"R4 &middot; Retirement",
+    "app-services":"R4 &middot; App Services",
+    "crossboarding":"R4 &middot; Crossboarding"
   };
 
   SPRINTS.forEach(function(sprint){
