@@ -162,6 +162,7 @@
   #sprintCards .sprint-body{flex:1;}
   .sprint-card-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
   .sprint-card-head .sname{font-weight:700; font-size:1.02rem;}
+  .sprint-card-head .sname .sub{font-weight:400;}
   .sprint-card-head .sdates{font-size:.82rem; font-weight:700; color:var(--ink-soft); font-family: ui-monospace, Consolas, monospace;}
   .sprint-card-head .edit-toggle{margin-inline-start:auto;}
   .risk-tag{
@@ -590,7 +591,7 @@
 
   var NAMES = {};
   SPRINTS.forEach(function(sprint){
-    NAMES[sprint.id] = "Sprint " + sprint.global + " &middot; R4 - Sprint " + sprint.id;
+    NAMES[sprint.id] = "Sprint " + sprint.global + " <span class=\"sub\">(R4 - Sprint " + sprint.id + ")</span>";
   });
 
   SPRINTS.forEach(function(sprint){
