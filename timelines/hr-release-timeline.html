@@ -165,6 +165,9 @@
   .sprint-card-head .sname .sub{font-weight:400;}
   .sprint-card-head .sdates{font-size:.82rem; font-weight:700; color:var(--ink-soft); font-family: ui-monospace, Consolas, monospace;}
   .sprint-card-head .edit-toggle{margin-inline-start:auto;}
+  #sprintCards .sprint-card-head{display:flex; flex-direction:column; align-items:stretch; gap:4px;}
+  #sprintCards .sprint-card-head .head-top{display:flex; align-items:baseline; gap:10px;}
+  #sprintCards .sprint-card-head .head-top .edit-toggle{margin-inline-start:auto;}
   .risk-tag{
     display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:600;
     color:var(--risk-text); background:var(--risk-bg); padding:3px 9px; border-radius:6px; margin-block-start:8px;
@@ -601,9 +604,11 @@
     var head = document.createElement("div");
     head.className = "sprint-card-head";
     head.innerHTML =
-      '<span class="sname">' + NAMES[sprint.id] + '</span>' +
-      '<span class="sdates">' + sprint.dates + '</span>' +
-      '<span class="edit-toggle" data-role="edit">Edit</span>';
+      '<div class="head-top">' +
+        '<span class="sname">' + NAMES[sprint.id] + '</span>' +
+        '<span class="edit-toggle" data-role="edit">Edit</span>' +
+      '</div>' +
+      '<span class="sdates">' + sprint.dates + '</span>';
     card.appendChild(head);
 
     if (sprint.risk) {
