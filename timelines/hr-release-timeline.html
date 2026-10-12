@@ -53,7 +53,9 @@
   .col-sprint{flex:24 1 0%;}
   .col-r3{flex:56 1 0%;}
   .col-r4{flex-basis:140px;}
+  .col-r4seg{flex:1 1 0%;}
   .gap{flex:0 0 12px;}
+  .gap-sm{flex:0 0 6px;}
 
   /* the bar */
   .bar{height:14px; border-radius:7px; position:relative;}
@@ -80,6 +82,10 @@
   .col-r1 .name{color:var(--done);}
   .col-r4 .name, .col-r3 .name{color:var(--idle-text);}
   .col-sprint .name{color:var(--accent);}
+  .col-r4seg.done .name{color:var(--done);}
+  .col-r4seg.current .name{color:var(--accent);}
+  .col-r4seg.future .name{color:var(--idle-text);}
+  .col-r4seg .meta{font-size:.68rem;}
 
   .legend{display:flex; flex-wrap:wrap; gap:22px; margin-block-start:38px;}
   .legend-item{display:flex; align-items:center; gap:8px; font-size:.82rem; color:var(--ink-soft);}
@@ -206,18 +212,30 @@
   <div class="row marker-row">
     <div class="col col-r1"></div>
     <div class="gap"></div>
-    <div class="col col-sprint">
+    <div class="col col-r4seg" style="flex:10 1 0%;"></div>
+    <div class="gap-sm"></div>
+    <div class="col col-r4seg current" style="flex:31 1 0%;">
       <div class="today">
         <span class="label">TODAY</span>
         <span class="tick"></span>
       </div>
     </div>
+    <div class="gap-sm"></div>
+    <div class="col col-r4seg" style="flex:30 1 0%;"></div>
+    <div class="gap-sm"></div>
+    <div class="col col-r4seg" style="flex:25 1 0%;"></div>
   </div>
 
   <div class="row">
     <div class="col col-r1"><div class="bar done"></div></div>
     <div class="gap"></div>
-    <div class="col col-sprint"><div class="bar current"></div></div>
+    <div class="col col-r4seg done" style="flex:10 1 0%;"><div class="bar done"></div></div>
+    <div class="gap-sm"></div>
+    <div class="col col-r4seg current" style="flex:31 1 0%;"><div class="bar current"></div></div>
+    <div class="gap-sm"></div>
+    <div class="col col-r4seg future" style="flex:30 1 0%;"><div class="bar future"></div></div>
+    <div class="gap-sm"></div>
+    <div class="col col-r4seg future" style="flex:25 1 0%;"><div class="bar future"></div></div>
   </div>
 
   <div class="row" style="margin-block-start:18px;">
@@ -225,8 +243,20 @@
       <div class="cap-label"><div class="name">R1, R2 &amp; R3</div><div class="meta">Live</div></div>
     </div>
     <div class="gap"></div>
-    <div class="col col-sprint">
-      <div class="cap-label"><div class="name">R4</div><div class="meta">Temp On/Offboard, Transfer Out, Temporary Away, End of Attachment, App Services, Crossboarding</div></div>
+    <div class="col col-r4seg done" style="flex:10 1 0%;">
+      <div class="cap-label"><div class="name">Sep</div><div class="meta">Sprint 18</div></div>
+    </div>
+    <div class="gap-sm"></div>
+    <div class="col col-r4seg current" style="flex:31 1 0%;">
+      <div class="cap-label"><div class="name">Oct</div><div class="meta">Sprint 19 &amp; 20</div></div>
+    </div>
+    <div class="gap-sm"></div>
+    <div class="col col-r4seg future" style="flex:30 1 0%;">
+      <div class="cap-label"><div class="name">Nov</div><div class="meta">Sprint 21 &amp; 22</div></div>
+    </div>
+    <div class="gap-sm"></div>
+    <div class="col col-r4seg future" style="flex:25 1 0%;">
+      <div class="cap-label"><div class="name">Dec</div><div class="meta">Sprint 23 &amp; 24</div></div>
     </div>
   </div>
 
